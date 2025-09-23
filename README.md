@@ -272,11 +272,5 @@ students_project/
 * `instance` updates existing records; without it, a new row is created.
 * Errors can be shown in templates via `{{ form.errors }}` or field-specific errors.
 
-Happy Django Coding! 🚀
-
-```
-
 ---
 
-This `README.md` can be committed to your repo to document all the concepts and serve as a quick refresher for future projects.
-```
