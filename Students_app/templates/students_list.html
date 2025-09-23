@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Students Table</title>
+  <style>
+    table {
+      width: 70%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    h2 {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+    <a href = "{% url 'students' %}">
+            <button style = "background:orange; color:white; border:none; padding:5px 10px; border-radius:5px;">Students Form </button>
+    </a> 
+  <h2>Student Data</h2>
+  
+  <table>
+    
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Photo</th>
+      <th>Edit</th>
+      <th>Delete</th>
+
+    </tr>
+    {% for i in stud %}
+    <tr>
+      <td>{{i.id}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.age}}</td>
+      <td>{{i.email}}</td>
+      <td> <img src="{{ i.img.url }}" alt="" width="150" height="150"></td>
+      <td>
+        <a href ="{% url 'edit_stu' i.id  %}">
+            <button style = "background:orange; color:white; border:none; padding:5px 10px; border-radius:5px;">Edit</button>
+        </a> 
+    </td>
+    <td>
+        <a href = "{% url 'delete' i.id %}">
+            <button style = "background:orange; color:white; border:none; padding:5px 10px; border-radius:5px;">Delete</button>
+        </a> 
+    </td>
+
+    </tr>
+    {% endfor %}
+    {% comment %} <tr>
+      <td>2</td>
+      <td>Bob</td>
+      <td>24</td>
+      <td>bob@example.com</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Charlie</td>
+      <td>21</td>
+      <td>charlie@example.com</td>
+    </tr> {% endcomment %}
+  </table>
+
+</body>
+</html>
+
